@@ -7,8 +7,9 @@ export default function Notifications() {
   useEffect(() => {
     echo.channel("notifications")
       .listen(".notification.sent", (e) => {
-         console.log("EVENT RECEIVED", e);
-        setNotifications((prev) => [e.notification, ...prev]);
+        console.log("EVENT RECEIVED", e);
+
+        setNotifications((prev) => [e, ...prev]);
       });
 
     return () => {
